@@ -1,0 +1,11 @@
+{
+    "name": "pantera-digital/yii2-geo-location",
+    "description": "Yii2 geo location module",
+    "type": "yii2-extension",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "pantera\\geolocation\\": "src\\"
+        }
+    }
+}
