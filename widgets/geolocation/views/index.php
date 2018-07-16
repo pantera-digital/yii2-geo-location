@@ -6,11 +6,12 @@
  * Time: 1:12 PM
  */
 
+use pantera\geolocation\models\GeobaseCity;
 use yii\helpers\Html;
 use yii\web\View;
 
 /* @var $this View */
-/* @var $popularCities array */
+/* @var $popularCities GeobaseCity[] */
 ?>
 <div id="my-region">
     <div id="your_city">
@@ -75,7 +76,7 @@ use yii\web\View;
         <ul>
             <?php foreach ($popularCities as $city): ?>
                 <li>
-                    <?= Html::a($city['name'], ['/geolocation/default/set', 'id' => $city['id']]) ?>
+                    <?= Html::a($city->name, ['/geolocation/default/set', 'id' => $city->id]) ?>
                 </li>
             <?php endforeach; ?>
         </ul>
