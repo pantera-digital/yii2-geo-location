@@ -1,1 +1,1 @@
-# yii2-geoip
+# yii2-geo-location
