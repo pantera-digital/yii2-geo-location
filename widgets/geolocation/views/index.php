@@ -51,8 +51,20 @@ use yii\web\View;
         <div class="h1">Выбор города</div>
         <div class="notice">Всего 421 город</div>
         <div id="search-city">
-            <input type="text" name="search_city" autocomplete="off" class="form-control">
-            <button class="serach-button"></button>
+            <?= \yii\jui\AutoComplete::widget([
+                'options' => [
+                    'class' => 'form-control',
+                ],
+                'clientOptions' => [
+                    'source' => \yii\helpers\Url::to(['/geolocation/default/search']),
+                    'minLength' => '3',
+                    'select' => new \yii\web\JsExpression('
+                        function (event, ui) {
+                            window.location = "/geolocation/default/set/" + ui.item.value;
+                        }
+                    '),
+                ],
+            ]) ?>
         </div>
         <ul>
             <?php foreach ($popularCities as $city): ?>
