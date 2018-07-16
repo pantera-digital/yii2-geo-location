@@ -40,6 +40,19 @@ composer require pantera-digital/yii2-geo-location "@dev"
 ```
 Добавить дефолтные города можно в таблицу geobase_city_popular
 ### Использование
+Вставка виджета
 ```
 <?= \pantera\geolocation\widgets\geolocation\Geolocation::widget() ?>
+```
+Определение города
+```
+Yii::$app->geolocation->identify()
+```
+Установить выбранный город по его id
+```
+Yii::$app->geolocation->set($id)
+```
+Получить выбранный город
+```
+Yii::$app->geolocation->get()
 ```

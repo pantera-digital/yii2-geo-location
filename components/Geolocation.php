@@ -13,6 +13,7 @@ use InvalidArgumentException;
 use pantera\geolocation\models\GeobaseCity;
 use Yii;
 use yii\base\Component;
+use function array_key_exists;
 use function is_null;
 
 class Geolocation extends Component
@@ -46,8 +47,8 @@ class Geolocation extends Component
         if ($this->_city) {
             return $this->_city;
         }
-        $location = Yii::$app->ipgeobase->getLocation('144.206.192.6');
-        if ($location) {
+        $location = Yii::$app->ipgeobase->getLocation(Yii::$app->request->getUserIP());
+        if ($location && array_key_exists('city', $location)) {
             $location = GeobaseCity::find()
                 ->where(['=', GeobaseCity::tableName() . '.name', $location['city']])
                 ->one();
