@@ -2,6 +2,8 @@
 
 namespace pantera\geolocation\models;
 
+use function get_called_class;
+
 /**
  * This is the model class for table "geobase_city".
  *
@@ -11,7 +13,7 @@ namespace pantera\geolocation\models;
  * @property double $latitude
  * @property double $longitude
  *
- * @property GeobaseCityPopular $geobaseCityPopulars
+ * @property GeobaseCityPopular $popular
  */
 class GeobaseCity extends \yii\db\ActiveRecord
 {
@@ -51,10 +53,15 @@ class GeobaseCity extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function find()
+    {
+        return new GeobaseCityQuery(get_called_class());
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getGeobaseCityPopulars()
+    public function getPopular()
     {
         return $this->hasOne(GeobaseCityPopular::className(), ['city_id' => 'id']);
     }
