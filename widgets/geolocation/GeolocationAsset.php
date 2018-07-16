@@ -6,7 +6,7 @@
  * Time: 1:14 PM
  */
 
-namespace pantera\location\widgets\geolocation;
+namespace pantera\geolocation\widgets\geolocation;
 
 
 use yii\web\AssetBundle;

@@ -7,6 +7,8 @@ namespace pantera\geolocation\models;
  *
  * @property int $id
  * @property int $city_id
+ *
+ * @property GeobaseCity $city
  */
 class GeobaseCityPopular extends \yii\db\ActiveRecord
 {
@@ -26,6 +28,7 @@ class GeobaseCityPopular extends \yii\db\ActiveRecord
         return [
             [['city_id'], 'required'],
             [['city_id'], 'integer'],
+            [['city_id'], 'exist', 'skipOnError' => true, 'targetClass' => GeobaseCity::className(), 'targetAttribute' => ['city_id' => 'id']],
         ];
     }
 
@@ -38,5 +41,13 @@ class GeobaseCityPopular extends \yii\db\ActiveRecord
             'id' => 'ID',
             'city_id' => 'City ID',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCity()
+    {
+        return $this->hasOne(GeobaseCity::className(), ['id' => 'city_id']);
     }
 }

@@ -9,6 +9,7 @@
 namespace pantera\geolocation\controllers;
 
 
+use Yii;
 use yii\web\Controller;
 
 class DefaultController extends Controller
@@ -18,8 +19,10 @@ class DefaultController extends Controller
 
     }
 
-    public function actionSet()
+    public function actionSet(int $id)
     {
-        
+        Yii::$app->geolocation->set($id);
+        $url = Yii::$app->request->referrer ?: ['/'];
+        return $this->redirect($url);
     }
 }
