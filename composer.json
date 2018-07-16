@@ -5,7 +5,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "pantera\\geolocation\\": "src\\"
+            "pantera\\geolocation\\": ""
         }
     }
 }
