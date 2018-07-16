@@ -49,7 +49,7 @@ use yii\web\View;
     </div>
     <div id="select_region" style="display: none;">
         <div class="h1">Выбор города</div>
-        <div class="notice">Всего 421 город</div>
+        <div class="notice">Всего <?= Yii::$app->geolocation->getCountCity() ?> город</div>
         <div id="search-city">
             <?= \yii\jui\AutoComplete::widget([
                 'options' => [
@@ -61,6 +61,12 @@ use yii\web\View;
                     'select' => new \yii\web\JsExpression('
                         function (event, ui) {
                             window.location = "/geolocation/default/set/" + ui.item.value;
+                            return false;
+                        }
+                    '),
+                    'focus' => new \yii\web\JsExpression('
+                        function(event, ui){
+                            return false;
                         }
                     '),
                 ],

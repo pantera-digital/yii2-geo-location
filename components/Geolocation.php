@@ -21,6 +21,11 @@ class Geolocation extends Component
 
     const SESSION_KEY = 'selected-city-id';
 
+    public function getCountCity(): int
+    {
+        return GeobaseCity::find()->count();
+    }
+
     public function set($id): void
     {
         $city = GeobaseCity::findOne($id);
