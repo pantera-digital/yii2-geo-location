@@ -17,13 +17,15 @@ use yii\web\View;
     <div class="dropdown geolocation__dropdown">
         <?php if (is_null(Yii::$app->geolocation->get())): ?>
             <div class="geolocation__dropdown-header">
+                <?= $this->context->labelYourLocation ?>
                 <?php if (Yii::$app->geolocation->identify()): ?>
-                    Ваш регион <?= Yii::$app->geolocation->identify()->name ?>?
+                    <?= Yii::$app->geolocation->identify()->name ?>?
                 <?php else: ?>
-                    Мы не смогли определить ваш город
+                    <?= $this->context->labelLocationNotDetected ?>
                 <?php endif; ?>
             </div>
         <?php else: ?>
+            <?= $this->context->labelYourLocation ?>
             <a href="javascript:void(0)" data-toggle="dropdown">
                 г. <?= Yii::$app->geolocation->get()->name ?>
             </a>
@@ -39,8 +41,8 @@ use yii\web\View;
                 ]);
             }
             ?>
-            <button data-toggle="dropdown" class="btn btn-default">
-                Изменить регион
+            <button data-toggle="dropdown" class="btn btn-success">
+                <?= $this->context->labelChangeLocation ?>
                 <span class="caret"></span>
             </button>
         <?php endif; ?>

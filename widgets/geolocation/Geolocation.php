@@ -14,6 +14,12 @@ use yii\base\Widget;
 
 class Geolocation extends Widget
 {
+    public $labelYourLocation = 'Ваш регион:';
+
+    public $labelLocationNotDetected = 'Мы не смогли определить ваш регион';
+    
+    public $labelChangeLocation = 'Изменить регион';
+
     public function run()
     {
         parent::run();
