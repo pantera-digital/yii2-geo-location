@@ -27,7 +27,7 @@ use yii\web\View;
         <?php else: ?>
             <?= $this->context->labelYourLocation ?>
             <a href="javascript:void(0)" data-toggle="dropdown">
-                г. <?= Yii::$app->geolocation->get()->name ?>
+                <?= Yii::$app->geolocation->get()->name ?>
             </a>
         <?php endif; ?>
         <?php if (is_null(Yii::$app->geolocation->get())): ?>
