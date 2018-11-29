@@ -37,6 +37,7 @@ use yii\web\View;
                     '/geolocation/default/set',
                     'id' => Yii::$app->geolocation->identify()->id,
                 ], [
+                    'rel' => 'nofollow',
                     'class' => 'btn btn-success',
                 ]);
             }
